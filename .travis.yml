@@ -3,8 +3,12 @@ sudo: required
 
 # Install docker
 services:
-  -docker
+  - docker
 
-# 
+# build an image from Dockerfile.dev and use local directory
 before_install:
   - docker build -t hermaze/docker-react -f Dockerfile.dev .
+
+# Series of commands for test execution
+script:
+  - docker run hermaze/docker-react npm run test -- --coverage
