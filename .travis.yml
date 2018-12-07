@@ -1,0 +1,10 @@
+# Give super user permissions
+sudo: required
+
+# Install docker
+services:
+  -docker
+
+# 
+before_install:
+  - docker build -t hermaze/docker-react -f Dockerfile.dev .
